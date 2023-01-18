@@ -89,19 +89,54 @@ string text = "- Я думаю, - сказал князь, улыбаясь, - �
 // string s = "Text" //переменная текст
 // s[2]//обращение к третьему символу строки "x"
 
-string Replace(string text, char oldValue, char newValue)
+// string Replace(string text, char oldValue, char newValue)
+// {
+// 	string result = String.Empty;
+// 	int lenght = text.Length;
+// 	for (int i = 0; i < lenght; i++)
+// 	{
+// 		if (text[i] == oldValue) result = result + $"{newValue}";
+// 		else result = result + $"{text[i]}";
+// 	}
+// 	return result;
+// }
+// string newText = Replace(text, ' ', '_');
+// Console.WriteLine(newText);
+// Console.WriteLine();
+// newText = Replace(newText, 'к', 'К');
+// Console.WriteLine(newText);
+
+
+int[] arr = { 1, 5, 4, 3, 2, 6, 7, 1, 1 };
+
+void PrintAray(int[] array)
 {
-	string result = String.Empty;
-	int lenght = text.Length;
-	for (int i = 0; i < lenght; i++)
+	int count = array.Length;
+
+	for (int i = 0; i < count; i++)
 	{
-		if (text[i] == oldValue) result = result + $"{newValue}";
-		else result = result + $"{text[i]}";
+		Console.Write($"{array[i]} ");
 	}
-	return result;
+	Console.WriteLine();
 }
-string newText = Replace(text, ' ', '_');
-Console.WriteLine(newText);
-Console.WriteLine();
-newText = Replace(newText, 'к', 'К');
-Console.WriteLine(newText);
+
+async void SelectionSort(int[] array)
+{
+	for (int i = 0; i < array.Length - 1; i++)
+	{
+		int minPisition = i;
+		for (int j = i + 1; j < array.Length; j++)
+		{
+			if (array[j] < array[minPisition]) minPisition = j;
+		}
+
+		int temporary = array[i];
+		array[i] = array[minPisition];
+		array[minPisition] = temporary;
+	}
+}
+
+PrintAray(arr);
+SelectionSort(arr);
+
+PrintAray(arr);
